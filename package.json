@@ -1,0 +1,19 @@
+{
+  "name": "js-minimal-site",
+  "version": "0.1.0",
+  "description": "A minimal website with a component written in javascript",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreabrambilla/js-minimal-site.git"
+  },
+  "author": "Andrea Brambilla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andreabrambilla/js-minimal-site/issues"
+  },
+  "homepage": "https://github.com/andreabrambilla/js-minimal-site#readme",
+}

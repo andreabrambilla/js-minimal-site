@@ -27,7 +27,7 @@ jobs:
       run: |
         rm -rf build-working-dir
         mkdir build-working-dir
-        cp static/* build-working-dir/
+        cp -r static/* build-working-dir/
     
     # We are sure the build completed successfully, replace the previous deployment
     - name: Move

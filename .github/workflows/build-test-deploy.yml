@@ -1,5 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-name: Deploy
+name: Build, Test, Deploy
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -9,8 +8,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "deploy"
-  deploy:
+  build-test-deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -24,21 +22,16 @@ jobs:
     # Runs a set of commands using the runners shell
     # In this case the build op is just copying a bunch of files
     - name: Build
-      run: |
-        rm -rf build-working-dir
-        mkdir build-working-dir
-        cp -r static/* build-working-dir/
+      run: npm run build        
     
-    # We are sure the build completed successfully, replace the previous deployment
-    - name: Move
-      run: |
-        rm -rf deploy
-        mv build-working-dir deploy
+    # If we get here, the build step succeeded, run the tests
+    - name: Test
+      run: npm test
 
-    # Deploy to github pages
+    # If we get here, build and tests were fine, deploy to github pages
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: deploy   # The folder the action should deploy.
+        FOLDER: static   # The folder the action should deploy.

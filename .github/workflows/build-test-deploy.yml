@@ -22,8 +22,10 @@ jobs:
     # Runs a set of commands using the runners shell
     # In this case the build op is just copying a bunch of files
     - name: Build
-      run: npm run build        
-    
+      run: |
+        npm install
+        npm run build
+
     # If we get here, the build step succeeded, run the tests
     - name: Test
       run: npm test

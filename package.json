@@ -1,0 +1,29 @@
+{
+  "name": "js-minimal-site",
+  "version": "0.1.0",
+  "description": "A minimal website with a component written in javascript",
+  "type": "module",
+  "scripts": {
+    "build": "babel src --out-dir static",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreabrambilla/js-minimal-site.git"
+  },
+  "author": "Andrea Brambilla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andreabrambilla/js-minimal-site/issues"
+  },
+  "homepage": "https://github.com/andreabrambilla/js-minimal-site#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "jest": "^26.1.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.10.4"
+  }
+}
